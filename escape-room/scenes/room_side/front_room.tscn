@@ -1,0 +1,125 @@
+[gd_scene load_steps=18 format=3 uid="uid://c776lrycm6u5q"]
+
+[ext_resource type="PackedScene" uid="uid://dgs5djiukwgt0" path="res://scenes/furniture/front_room/objects/door.tscn" id="1_0a3cd"]
+[ext_resource type="PackedScene" uid="uid://ctaoicdqp5utg" path="res://scenes/furniture/front_room/objects/shelf.tscn" id="2_nu4b0"]
+[ext_resource type="PackedScene" uid="uid://c625ln7mosfy7" path="res://scenes/furniture/front_room/decorations/lamp.tscn" id="3_00cy2"]
+[ext_resource type="PackedScene" uid="uid://dtyf1ixwjj4ni" path="res://scenes/furniture/front_room/decorations/carpet.tscn" id="4_0hmgv"]
+[ext_resource type="PackedScene" uid="uid://di3vbqbpat5nl" path="res://scenes/furniture/front_room/decorations/chair.tscn" id="5_nu4b0"]
+[ext_resource type="PackedScene" uid="uid://b4w255itrgdai" path="res://scenes/furniture/front_room/decorations/stool.tscn" id="6_00cy2"]
+[ext_resource type="PackedScene" uid="uid://4bhl8yv05pmx" path="res://scenes/furniture/front_room/decorations/flower_pot.tscn" id="7_0hmgv"]
+[ext_resource type="PackedScene" uid="uid://bp7rdjyudfd0s" path="res://scenes/furniture/front_room/decorations/clock.tscn" id="8_su4wm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bt3ln"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_euo8y"]
+sky_material = SubResource("ProceduralSkyMaterial_bt3ln")
+
+[sub_resource type="Environment" id="Environment_ork5k"]
+background_mode = 2
+sky = SubResource("Sky_euo8y")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_bt3ln"]
+size = Vector3(8, 0.5, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_euo8y"]
+size = Vector3(8, 0.5, 2.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_euo8y"]
+size = Vector3(8, 0.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ork5k"]
+size = Vector3(8, 0.5, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tmc7s"]
+size = Vector3(3, 0.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8kr7c"]
+size = Vector3(3, 0.5, 4)
+
+[node name="FrontRoom" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+
+[node name="enviornment" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="enviornment"]
+transform = Transform3D(-0.77181154, -0.6273873, 0.103403196, 0.4330128, -0.3995191, 0.8080126, -0.46562532, 0.66840833, 0.5800201, 0, 5, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="enviornment"]
+environment = SubResource("Environment_ork5k")
+
+[node name="structure" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="structure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -2.25)
+mesh = SubResource("BoxMesh_bt3ln")
+skeleton = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="structure/Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="structure/Floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_euo8y")
+
+[node name="Wall" type="MeshInstance3D" parent="structure"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.0002568, -3.75)
+mesh = SubResource("BoxMesh_euo8y")
+skeleton = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="structure/Wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="structure/Wall/StaticBody3D"]
+shape = SubResource("BoxShape3D_ork5k")
+
+[node name="Wall2" type="MeshInstance3D" parent="structure"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -4.25, 2, -2)
+mesh = SubResource("BoxMesh_tmc7s")
+skeleton = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="structure/Wall2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="structure/Wall2/StaticBody3D"]
+shape = SubResource("BoxShape3D_8kr7c")
+
+[node name="Wall3" type="MeshInstance3D" parent="structure"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 4.25, 2, -2)
+mesh = SubResource("BoxMesh_tmc7s")
+skeleton = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="structure/Wall3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="structure/Wall3/StaticBody3D"]
+shape = SubResource("BoxShape3D_8kr7c")
+
+[node name="objects" type="Node3D" parent="."]
+
+[node name="door" parent="objects" instance=ExtResource("1_0a3cd")]
+transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, 0, 0.9553305, -3.35)
+
+[node name="shelf" parent="objects" instance=ExtResource("2_nu4b0")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.5, 1.05, -3.18)
+
+[node name="decorations" type="Node3D" parent="."]
+
+[node name="lamp" parent="decorations" instance=ExtResource("3_00cy2")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.2, 1, -3)
+
+[node name="carpet" parent="decorations" instance=ExtResource("4_0hmgv")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.08, 0.03, -2.8)
+
+[node name="chair" parent="decorations" instance=ExtResource("5_nu4b0")]
+transform = Transform3D(0.10000002, 0, 0.17320514, 0, 0.19999999, 0, -0.17320514, 0, 0.10000002, -2.4, 0.4, -2.7)
+
+[node name="stool" parent="decorations" instance=ExtResource("6_00cy2")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.5, 0.35, -2.8)
+
+[node name="FlowerPot" parent="decorations" instance=ExtResource("7_0hmgv")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.5, 0.5, -3)
+
+[node name="clock" parent="decorations" instance=ExtResource("8_su4wm")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.5, 2.3, -3.45)
