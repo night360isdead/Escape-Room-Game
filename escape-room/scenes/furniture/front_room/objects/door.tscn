@@ -1,4 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://dgs5djiukwgt0"]
+[gd_scene load_steps=13 format=4 uid="uid://dgs5djiukwgt0"]
+
+[ext_resource type="Script" uid="uid://d22xvoqwiqh63" path="res://scripts/front_room/furnitures/door_hinge.gd" id="1_tb540"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4alhw"]
 resource_name = "Brown 3"
@@ -78,6 +80,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ir7mt")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3duyl"]
+size = Vector3(4, 9, 0.5)
+
 [sub_resource type="Animation" id="Animation_8gg0l"]
 length = 0.001
 tracks/0/type = "value"
@@ -108,9 +113,25 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, -2.3561945, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_tb540"]
+resource_name = "closing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -2.3561945, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xwpbg"]
 _data = {
 &"RESET": SubResource("Animation_8gg0l"),
+&"closing": SubResource("Animation_tb540"),
 &"opening": SubResource("Animation_t57x0")
 }
 
@@ -121,15 +142,21 @@ transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1
 mesh = SubResource("ArrayMesh_6ky0g")
 skeleton = NodePath("")
 
-[node name="hinge" type="Node3D" parent="."]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.5, 0, 0)
+[node name="hinge" type="StaticBody3D" parent="."]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 2.5, 0, 0)
+script = ExtResource("1_tb540")
 
 [node name="Door B" type="MeshInstance3D" parent="hinge"]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -2.5, 0, 0)
 mesh = SubResource("ArrayMesh_wkl3g")
 skeleton = NodePath("")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hinge"]
+transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, -2, 0, 0)
+shape = SubResource("BoxShape3D_3duyl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hinge"]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_xwpbg")
 }

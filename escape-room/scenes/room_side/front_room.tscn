@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c776lrycm6u5q"]
+[gd_scene load_steps=19 format=3 uid="uid://c776lrycm6u5q"]
 
 [ext_resource type="PackedScene" uid="uid://dgs5djiukwgt0" path="res://scenes/furniture/front_room/objects/door.tscn" id="1_0a3cd"]
 [ext_resource type="PackedScene" uid="uid://ctaoicdqp5utg" path="res://scenes/furniture/front_room/objects/shelf.tscn" id="2_nu4b0"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4w255itrgdai" path="res://scenes/furniture/front_room/decorations/stool.tscn" id="6_00cy2"]
 [ext_resource type="PackedScene" uid="uid://4bhl8yv05pmx" path="res://scenes/furniture/front_room/decorations/flower_pot.tscn" id="7_0hmgv"]
 [ext_resource type="PackedScene" uid="uid://bp7rdjyudfd0s" path="res://scenes/furniture/front_room/decorations/clock.tscn" id="8_su4wm"]
+[ext_resource type="PackedScene" uid="uid://c74ckxaor1kyk" path="res://scenes/camera_3d.tscn" id="9_br7o7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bt3ln"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -41,9 +42,6 @@ size = Vector3(3, 0.5, 4)
 size = Vector3(3, 0.5, 4)
 
 [node name="FrontRoom" type="Node3D"]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 
 [node name="enviornment" type="Node3D" parent="."]
 
@@ -123,3 +121,6 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.5, 0.5, -3)
 
 [node name="clock" parent="decorations" instance=ExtResource("8_su4wm")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.5, 2.3, -3.45)
+
+[node name="Camera3D" parent="." instance=ExtResource("9_br7o7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

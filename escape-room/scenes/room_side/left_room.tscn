@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cyue4ubi0nrla"]
+[gd_scene load_steps=14 format=3 uid="uid://cyue4ubi0nrla"]
 
 [ext_resource type="PackedScene" uid="uid://darc0q1xfkjar" path="res://scenes/furniture/left_room/decorations/bed.tscn" id="1_xprlh"]
 [ext_resource type="PackedScene" uid="uid://bqfbmi5gygj7t" path="res://scenes/furniture/left_room/decorations/lamp.tscn" id="2_xteme"]
 [ext_resource type="PackedScene" uid="uid://bwje8velbyesm" path="res://scenes/furniture/left_room/decorations/window.tscn" id="3_lefep"]
+[ext_resource type="PackedScene" uid="uid://c74ckxaor1kyk" path="res://scenes/camera_3d.tscn" id="4_3llo2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bt3ln"]
 size = Vector3(8, 0.5, 2.5)
@@ -36,9 +37,6 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="FrontRoom" type="Node3D"]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 
 [node name="structure" type="Node3D" parent="."]
 
@@ -103,3 +101,6 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.9, 1, -2.8)
 
 [node name="window" parent="decorations" instance=ExtResource("3_lefep")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.4, 2, -3.43)
+
+[node name="Camera3D2" parent="." instance=ExtResource("4_3llo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
