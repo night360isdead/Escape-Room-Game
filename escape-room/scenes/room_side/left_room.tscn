@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cyue4ubi0nrla"]
+[gd_scene load_steps=11 format=3 uid="uid://cyue4ubi0nrla"]
 
 [ext_resource type="PackedScene" uid="uid://darc0q1xfkjar" path="res://scenes/furniture/left_room/decorations/bed.tscn" id="1_xprlh"]
 [ext_resource type="PackedScene" uid="uid://bqfbmi5gygj7t" path="res://scenes/furniture/left_room/decorations/lamp.tscn" id="2_xteme"]
@@ -22,19 +22,6 @@ size = Vector3(3, 0.5, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8kr7c"]
 size = Vector3(3, 0.5, 4)
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bt3ln"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_euo8y"]
-sky_material = SubResource("ProceduralSkyMaterial_bt3ln")
-
-[sub_resource type="Environment" id="Environment_ork5k"]
-background_mode = 2
-sky = SubResource("Sky_euo8y")
-tonemap_mode = 2
-glow_enabled = true
 
 [node name="FrontRoom" type="Node3D"]
 
@@ -80,15 +67,6 @@ skeleton = NodePath("StaticBody3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="structure/Wall3/StaticBody3D"]
 shape = SubResource("BoxShape3D_8kr7c")
 
-[node name="environment" type="Node3D" parent="."]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment"]
-transform = Transform3D(-0.77181154, -0.6273873, 0.103403196, 0.4330128, -0.3995191, 0.8080126, -0.46562532, 0.66840833, 0.5800201, 0, 5, 1)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="environment"]
-environment = SubResource("Environment_ork5k")
-
 [node name="objects" type="Node3D" parent="."]
 
 [node name="decorations" type="Node3D" parent="."]
@@ -102,5 +80,5 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.9, 1, -2.8)
 [node name="window" parent="decorations" instance=ExtResource("3_lefep")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.4, 2, -3.43)
 
-[node name="Camera3D2" parent="." instance=ExtResource("4_3llo2")]
+[node name="Camera3D" parent="." instance=ExtResource("4_3llo2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

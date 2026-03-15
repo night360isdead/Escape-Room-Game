@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3 uid="uid://blll4eg5u5xxv"]
+
+[ext_resource type="PackedScene" uid="uid://bh57tq2ccux1w" path="res://scenes/inventory/ui_slot.tscn" id="1_celo0"]
+[ext_resource type="Script" uid="uid://bc5jeqnt12xha" path="res://scenes/inventory/inv_ui.gd" id="1_hbvie"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ab6tm"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.6313726)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
+
+[node name="Inv_UI" type="Control"]
+layout_mode = 3
+anchor_left = 0.50100005
+anchor_top = 0.5
+anchor_right = 0.50100005
+anchor_bottom = 0.5
+offset_left = -577.15204
+offset_top = -324.0
+offset_right = 574.84796
+offset_bottom = 324.0
+script = ExtResource("1_hbvie")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(840, 70)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50100005
+anchor_top = 0.5
+anchor_right = 0.50100005
+anchor_bottom = 0.5
+offset_left = -421.15204
+offset_top = 226.0
+offset_right = 418.84796
+offset_bottom = 296.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ab6tm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -410.0
+offset_top = -30.0
+offset_right = 410.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="UI_slot" parent="Panel/HBoxContainer" instance=ExtResource("1_celo0")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="UI_slot2" parent="Panel/HBoxContainer" instance=ExtResource("1_celo0")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="UI_slot3" parent="Panel/HBoxContainer" instance=ExtResource("1_celo0")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="UI_slot4" parent="Panel/HBoxContainer" instance=ExtResource("1_celo0")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="UI_slot5" parent="Panel/HBoxContainer" instance=ExtResource("1_celo0")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="UI_slot6" parent="Panel/HBoxContainer" instance=ExtResource("1_celo0")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="UI_slot7" parent="Panel/HBoxContainer" instance=ExtResource("1_celo0")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="UI_slot8" parent="Panel/HBoxContainer" instance=ExtResource("1_celo0")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="UI_slot9" parent="Panel/HBoxContainer" instance=ExtResource("1_celo0")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="UI_slot10" parent="Panel/HBoxContainer" instance=ExtResource("1_celo0")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="UI_slot11" parent="Panel/HBoxContainer" instance=ExtResource("1_celo0")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="UI_slot12" parent="Panel/HBoxContainer" instance=ExtResource("1_celo0")]
+layout_mode = 2
+size_flags_horizontal = 2

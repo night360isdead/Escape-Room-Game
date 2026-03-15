@@ -1,8 +1,8 @@
 [gd_scene load_steps=65 format=4 uid="uid://jw8yoona8idu"]
 
-[ext_resource type="Script" uid="uid://b0r5jqw2avipp" path="res://scripts/front_room/furnitures/upper_drawer.gd" id="1_1dpen"]
-[ext_resource type="Script" uid="uid://dtfaq6vkgwm2d" path="res://scripts/front_room/furnitures/middle_drawer.gd" id="2_gg7h7"]
-[ext_resource type="Script" uid="uid://1y2knbkxnuq7" path="res://scripts/front_room/furnitures/lower_drawer.gd" id="3_43qd2"]
+[ext_resource type="Script" uid="uid://b0r5jqw2avipp" path="res://scripts/right_room/furnitures/upper_drawer.gd" id="1_1dpen"]
+[ext_resource type="Script" uid="uid://dtfaq6vkgwm2d" path="res://scripts/right_room/furnitures/middle_drawer.gd" id="2_gg7h7"]
+[ext_resource type="Script" uid="uid://1y2knbkxnuq7" path="res://scripts/right_room/furnitures/lower_drawer.gd" id="3_43qd2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bs3fq"]
 resource_name = "Brown"

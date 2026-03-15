@@ -10,6 +10,6 @@ extends StaticBody3D
 
 
 func action():
-	camera_3d.position = Vector3(0,1.6,-2)
+	camera_3d.position = Vector3(0,2,-1.7)
 	camera_3d.rotation_degrees.x = -45
 	

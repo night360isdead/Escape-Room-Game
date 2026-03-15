@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c74ckxaor1kyk"]
+[gd_scene load_steps=3 format=3 uid="uid://c74ckxaor1kyk"]
 
 [ext_resource type="Script" uid="uid://dc8ytlfexc01g" path="res://scripts/camera_3d.gd" id="1_v4apc"]
+[ext_resource type="Resource" uid="uid://c36keg2452bb5" path="res://scenes/inventory/inventory.tres" id="2_nstyr"]
 
 [node name="Camera3D" type="Camera3D"]
 script = ExtResource("1_v4apc")
+inventory = ExtResource("2_nstyr")

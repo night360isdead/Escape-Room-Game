@@ -43,6 +43,110 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_alhel")
 
+[sub_resource type="Animation" id="Animation_6usoi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("open_up:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8kobo"]
+resource_name = "closing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("open_up:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -2.3561945, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nvqv8"]
+resource_name = "opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("open_up:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -2.3561945, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8kobo"]
+_data = {
+&"RESET": SubResource("Animation_6usoi"),
+&"closing": SubResource("Animation_8kobo"),
+&"opening": SubResource("Animation_nvqv8")
+}
+
+[sub_resource type="Animation" id="Animation_5wkne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("open_down:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1xuh6"]
+resource_name = "closing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("open_down:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -2.3561945, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8ort2"]
+resource_name = "opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("open_down:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -2.3561945, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2xnnq"]
+_data = {
+&"RESET": SubResource("Animation_5wkne"),
+&"closing": SubResource("Animation_1xuh6"),
+&"opening": SubResource("Animation_8ort2")
+}
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bls18"]
 resource_name = "Grey 2"
 vertex_color_use_as_albedo = true
@@ -171,146 +275,12 @@ shadow_mesh = SubResource("ArrayMesh_gp550")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nvqv8"]
 points = PackedVector3Array(0.014194343, -0.002560107, -0.0059091896, 0.013986792, -0.0018336787, -0.0059091896, 0.013895329, -0.0019664518, -0.0055010095, 0.013986792, -0.002560107, -0.0054092817, 0.014194343, -0.0051537, -0.0059091896, 0.014194343, -0.002560107, -0.046892494, 0.013490777, -0.0015319847, -0.0059091896, 0.013986792, -0.0018336787, -0.04717226, 0.013490777, -0.0018336787, -0.0054092817, 0.013490777, -0.002560107, -0.005202897, 0.013986792, -0.0051537, -0.0054092817, 0.013895329, -0.0057466603, -0.0055010095, 0.013986792, -0.0058801286, -0.0059091896, 0.014194343, -0.0051537, -0.046892494, 0.014113434, -0.002560107, -0.047580443, 0.014014933, -0.0019664518, -0.04755751, -0.021043716, -0.0015319847, -0.0059091896, 0.013490777, -0.0015319847, -0.04745661, 0.01384256, -0.0018336787, -0.04790607, -0.021043716, -0.0018336787, -0.0054092817, 0.013490777, -0.0051537, -0.005202897, -0.021043716, -0.002560107, -0.005202897, 0.013490777, -0.0058801286, -0.0054092817, 0.011140872, -0.008421585, -0.005877085, 0.011140872, -0.008633605, -0.0060880557, 0.013986792, -0.0058801286, -0.04717226, 0.014014933, -0.0057466603, -0.04755751, 0.014113434, -0.0051537, -0.047580443, 0.01392347, -0.002560107, -0.04824546, -0.02153973, -0.0018336787, -0.0059091896, -0.021448266, -0.0019664518, -0.0055010095, -0.021043716, -0.0015319847, -0.04745661, 0.012885712, -0.0018336787, -0.050212987, 0.012347486, -0.0015319847, -0.050212987, 0.013153069, -0.002560107, -0.050102916, -0.021043716, -0.0051537, -0.005202897, -0.02153973, -0.002560107, -0.0054092817, 0.009702079, -0.008421585, -0.005877085, 0.009702079, -0.008633605, -0.0060880557, 0.011140872, -0.008633605, -0.012178682, 0.013490777, -0.0061811274, -0.04745661, 0.01384256, -0.0058801286, -0.04790607, 0.01392347, -0.0051537, -0.04824546, -0.021743763, -0.002560107, -0.0059091896, -0.02153973, -0.0018336787, -0.04717226, -0.019900423, -0.0015319847, -0.050212987, -0.02043865, -0.0018336787, -0.050212987, -0.021395499, -0.0018336787, -0.04790607, 0.012706302, -0.0019664518, -0.050575305, 0.012347486, -0.0018336787, -0.050749585, 0.010039791, -0.0018336787, -0.051708125, 0.009589512, -0.0015319847, -0.05135498, 0.013153069, -0.0051537, -0.050102916, 0.012773141, -0.002560107, -0.050639514, -0.02153973, -0.0051537, -0.0054092817, -0.021448266, -0.0057466603, -0.0055010095, -0.021043716, -0.0058801286, -0.0054092817, -0.021043716, -0.0061811274, -0.0059091896, 0.009702079, -0.008633605, -0.012178682, 0.009589512, -0.0061811274, -0.05135498, 0.012347486, -0.0061811274, -0.050212987, 0.012885712, -0.0058801286, -0.050212987, -0.021743763, -0.0051537, -0.0059091896, -0.021743763, -0.002560107, -0.046892494, -0.021567872, -0.0019664518, -0.04755751, -0.017142447, -0.0015319847, -0.05135498, -0.017592728, -0.0018336787, -0.051708125, -0.019900423, -0.0018336787, -0.050749585, -0.02025924, -0.0019664518, -0.050575305, -0.020706005, -0.002560107, -0.050102916, -0.021476408, -0.002560107, -0.04824546, 0.012234915, -0.002560107, -0.05102018, 0.010377504, -0.002560107, -0.051790677, 0.009691529, -0.0019664518, -0.051882405, 0.009308085, -0.0018336787, -0.051854886, 0.012706302, -0.0057466603, -0.050575305, 0.012773141, -0.0051537, -0.050639514, -0.02153973, -0.0058801286, -0.0059091896, -0.021043716, -0.0061811274, -0.04745661, -0.019900423, -0.0061811274, -0.050212987, -0.017142447, -0.0061811274, -0.05135498, 0.009308085, -0.0058801286, -0.051854886, 0.010039791, -0.0058801286, -0.051708125, 0.012347486, -0.0058801286, -0.050749585, -0.021743763, -0.0051537, -0.046892494, -0.02166637, -0.002560107, -0.047580443, -0.016861022, -0.0018336787, -0.051854886, -0.017244464, -0.0019664518, -0.051882405, -0.01793044, -0.002560107, -0.051790677, -0.019787852, -0.002560107, -0.05102018, -0.02032608, -0.002560107, -0.050639514, -0.020706005, -0.0051537, -0.050102916, -0.021476408, -0.0051537, -0.04824546, 0.012234915, -0.0051537, -0.05102018, 0.010377504, -0.0051537, -0.051790677, 0.009712633, -0.002560107, -0.05197872, 0.009026658, -0.002560107, -0.052056685, -0.02153973, -0.0058801286, -0.04717226, -0.021395499, -0.0058801286, -0.04790607, -0.02043865, -0.0058801286, -0.050212987, -0.019900423, -0.0058801286, -0.050749585, -0.017592728, -0.0058801286, -0.051708125, -0.016861022, -0.0058801286, -0.051854886, 0.009026658, -0.0051537, -0.052056685, 0.009691529, -0.0057466603, -0.051882405, -0.02166637, -0.0051537, -0.047580443, -0.021567872, -0.0057466603, -0.04755751, -0.016579594, -0.002560107, -0.052056685, -0.017265571, -0.002560107, -0.05197872, -0.01793044, -0.0051537, -0.051790677, -0.019787852, -0.0051537, -0.05102018, -0.02032608, -0.0051537, -0.050639514, -0.02025924, -0.0057466603, -0.050575305, 0.009712633, -0.0051537, -0.05197872, -0.017244464, -0.0057466603, -0.051882405, -0.016579594, -0.0051537, -0.052056685, -0.017265571, -0.0051537, -0.05197872)
 
-[sub_resource type="Animation" id="Animation_6usoi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("upper_fridge_drawer/open_up:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_nvqv8"]
-resource_name = "opening"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("upper_fridge_drawer/open_up:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -2.3561945, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_8kobo"]
-resource_name = "closing"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("upper_fridge_drawer/open_up:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -2.3561945, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8kobo"]
-_data = {
-&"RESET": SubResource("Animation_6usoi"),
-&"closing": SubResource("Animation_8kobo"),
-&"opening": SubResource("Animation_nvqv8")
-}
-
-[sub_resource type="Animation" id="Animation_5wkne"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("lower_fridge_drawer/open_down:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_8ort2"]
-resource_name = "opening"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("lower_fridge_drawer/open_down:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -2.3561945, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_1xuh6"]
-resource_name = "closing"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("lower_fridge_drawer/open_down:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -2.3561945, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2xnnq"]
-_data = {
-&"RESET": SubResource("Animation_5wkne"),
-&"closing": SubResource("Animation_1xuh6"),
-&"opening": SubResource("Animation_8ort2")
-}
-
 [node name="fridge" type="Node3D"]
 
 [node name="Fridge B2" type="MeshInstance3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
 mesh = SubResource("ArrayMesh_sbwhv")
 skeleton = NodePath("")
-
-[node name="upper_fridge_drawer" type="StaticBody3D" parent="."]
-script = ExtResource("1_1xuh6")
-
-[node name="open_up" type="Node3D" parent="upper_fridge_drawer"]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -2, 0, 0.2)
-
-[node name="Fridge B_002" type="MeshInstance3D" parent="upper_fridge_drawer/open_up"]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 2, 0, -0.2)
-mesh = SubResource("ArrayMesh_1xuh6")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="upper_fridge_drawer"]
-transform = Transform3D(99.99999, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.999985, -1.1920928e-05, -1.1920929e-07, 0, 1.4901161e-08)
-shape = SubResource("ConvexPolygonShape3D_kmh06")
-
-[node name="lower_fridge_drawer" type="StaticBody3D" parent="."]
-script = ExtResource("2_kmh06")
-
-[node name="open_down" type="Node3D" parent="lower_fridge_drawer"]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -2, 0, 0.2)
-
-[node name="Fridge B_001" type="MeshInstance3D" parent="lower_fridge_drawer/open_down"]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 2, 0, -0.2)
-mesh = SubResource("ArrayMesh_kmh06")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="lower_fridge_drawer"]
-transform = Transform3D(99.99999, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.999985, -1.1920928e-05, -1.1920929e-07, 0, 1.4901161e-08)
-shape = SubResource("ConvexPolygonShape3D_nvqv8")
 
 [node name="up_open" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -323,3 +293,35 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_2xnnq")
 }
+
+[node name="open_up" type="Node3D" parent="."]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -2, 0, 0.2)
+
+[node name="Fridge B_002" type="MeshInstance3D" parent="open_up"]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 2, 0, -0.2)
+mesh = SubResource("ArrayMesh_1xuh6")
+skeleton = NodePath("")
+
+[node name="upper_fridge_drawer" type="StaticBody3D" parent="open_up"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.2)
+script = ExtResource("1_1xuh6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="open_up/upper_fridge_drawer"]
+transform = Transform3D(99.99999, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.999985, -1.1920928e-05, -1.1920929e-07, 0, 1.4901161e-08)
+shape = SubResource("ConvexPolygonShape3D_kmh06")
+
+[node name="open_down" type="Node3D" parent="."]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -2, 0, 0.2)
+
+[node name="Fridge B_001" type="MeshInstance3D" parent="open_down"]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 2, 0, -0.2)
+mesh = SubResource("ArrayMesh_kmh06")
+skeleton = NodePath("")
+
+[node name="lower_fridge_drawer" type="StaticBody3D" parent="open_down"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.2)
+script = ExtResource("2_kmh06")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="open_down/lower_fridge_drawer"]
+transform = Transform3D(99.99999, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.999985, -1.1920928e-05, -1.1920929e-07, 0, 1.4901161e-08)
+shape = SubResource("ConvexPolygonShape3D_nvqv8")

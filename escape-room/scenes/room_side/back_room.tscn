@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c3nddwp3qh1xc"]
+[gd_scene load_steps=18 format=3 uid="uid://c3nddwp3qh1xc"]
 
 [ext_resource type="PackedScene" uid="uid://c4cdhtwdexdgf" path="res://scenes/furniture/back_room/objects/sink.tscn" id="1_qht1y"]
 [ext_resource type="PackedScene" uid="uid://bbbgul504tqaf" path="res://scenes/furniture/back_room/objects/desk.tscn" id="2_dv2fc"]
@@ -26,19 +26,6 @@ size = Vector3(3, 0.5, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8kr7c"]
 size = Vector3(3, 0.5, 4)
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bt3ln"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_euo8y"]
-sky_material = SubResource("ProceduralSkyMaterial_bt3ln")
-
-[sub_resource type="Environment" id="Environment_ork5k"]
-background_mode = 2
-sky = SubResource("Sky_euo8y")
-tonemap_mode = 2
-glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rymsj"]
 size = Vector3(1.3808594, 0.8378906, 0)
@@ -92,15 +79,6 @@ skeleton = NodePath("StaticBody3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="structure/Wall3/StaticBody3D"]
 shape = SubResource("BoxShape3D_8kr7c")
-
-[node name="environment" type="Node3D" parent="."]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment"]
-transform = Transform3D(-0.77181154, -0.6273873, 0.10340313, -0.015462123, 0.18109196, 0.9833446, -0.6356632, 0.7573578, -0.14946961, 0, 5, 1)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="environment"]
-environment = SubResource("Environment_ork5k")
 
 [node name="objects" type="Node3D" parent="."]
 

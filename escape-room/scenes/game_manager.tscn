@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://ci6rpttwkpw8a"]
+
+[ext_resource type="Script" uid="uid://c4tav4w3u87df" path="res://scripts/game_manager.gd" id="1_eaq8r"]
+[ext_resource type="PackedScene" uid="uid://c3nddwp3qh1xc" path="res://scenes/room_side/back_room.tscn" id="2_ternb"]
+[ext_resource type="PackedScene" uid="uid://c776lrycm6u5q" path="res://scenes/room_side/front_room.tscn" id="3_q8mjp"]
+[ext_resource type="PackedScene" uid="uid://cyue4ubi0nrla" path="res://scenes/room_side/left_room.tscn" id="4_jdad8"]
+[ext_resource type="PackedScene" uid="uid://cnkrgg76y040f" path="res://scenes/room_side/right_room.tscn" id="5_k4jhu"]
+[ext_resource type="PackedScene" uid="uid://blll4eg5u5xxv" path="res://scenes/inventory/inv_ui.tscn" id="6_ternb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eaq8r"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ternb"]
+sky_material = SubResource("ProceduralSkyMaterial_eaq8r")
+
+[sub_resource type="Environment" id="Environment_q8mjp"]
+background_mode = 2
+sky = SubResource("Sky_ternb")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eaq8r"]
+size = Vector3(1, 2, 2)
+
+[node name="GameManager" type="Node3D"]
+script = ExtResource("1_eaq8r")
+
+[node name="environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="environment"]
+environment = SubResource("Environment_q8mjp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment"]
+transform = Transform3D(0.23344542, 0.9716532, -0.037327174, 0, 0.038387835, 0.9992629, 0.9723699, -0.23327336, 0.008961464, 0, 12.700001, 0)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="rooms" type="Node3D" parent="."]
+
+[node name="FrontRoom" parent="rooms" instance=ExtResource("3_q8mjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+
+[node name="RightRoom" parent="rooms" instance=ExtResource("5_k4jhu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14, 0, 0)
+
+[node name="BackRoom" parent="rooms" instance=ExtResource("2_ternb")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 20)
+
+[node name="LeftRoom" parent="rooms" instance=ExtResource("4_jdad8")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17, 0, 0)
+
+[node name="blocks" type="Node3D" parent="."]
+
+[node name="block_right_room" type="StaticBody3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, 0)
+
+[node name="right_shape" type="CollisionShape3D" parent="blocks/block_right_room"]
+shape = SubResource("BoxShape3D_eaq8r")
+
+[node name="block_left_room" type="StaticBody3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 1, 0)
+
+[node name="left_shape" type="CollisionShape3D" parent="blocks/block_left_room"]
+shape = SubResource("BoxShape3D_eaq8r")
+
+[node name="block_back_room" type="StaticBody3D" parent="blocks"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1, 21.2)
+
+[node name="back_shape" type="CollisionShape3D" parent="blocks/block_back_room"]
+shape = SubResource("BoxShape3D_eaq8r")
+
+[node name="block_front_room" type="StaticBody3D" parent="blocks"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1, -14.999999)
+
+[node name="front_shape" type="CollisionShape3D" parent="blocks/block_front_room"]
+shape = SubResource("BoxShape3D_eaq8r")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("6_ternb")]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://d4f2ekqrik4t5"]
+
+[ext_resource type="Script" uid="uid://tdw8gj1pcxj1" path="res://scenes/inventory/items/inventory_item.gd" id="1_s4g0l"]
+[ext_resource type="Texture2D" uid="uid://bne81mbvvbiin" path="res://assets/icons/key.svg" id="2_dvu1s"]
+
+[resource]
+script = ExtResource("1_s4g0l")
+name = "key_table_up_drawer"
+texture = ExtResource("2_dvu1s")
+metadata/_custom_type_script = "uid://tdw8gj1pcxj1"

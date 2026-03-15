@@ -3,6 +3,8 @@ extends Camera3D
 
 
 
+@export var inventory : Inventory
+
 
 
 
@@ -32,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	if result:
 		
 		var object = result.collider
-		
+		#handles if input something do the action function
 		if Input.is_action_just_pressed("interact"):
 			if object.has_method("action"):
 				object.action()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://cnkrgg76y040f"]
+[gd_scene load_steps=14 format=3 uid="uid://cnkrgg76y040f"]
 
 [ext_resource type="PackedScene" uid="uid://jw8yoona8idu" path="res://scenes/furniture/right_room/objects/drawer.tscn" id="1_0l6qm"]
 [ext_resource type="PackedScene" uid="uid://cluectxgyb2e4" path="res://scenes/furniture/right_room/decorations/sofa.tscn" id="1_ryuvq"]
+[ext_resource type="PackedScene" uid="uid://bwosdoxncmrpn" path="res://scenes/furniture/right_room/objects/safe.tscn" id="2_2vx1j"]
 [ext_resource type="PackedScene" uid="uid://chemsnerl31a0" path="res://scenes/furniture/right_room/decorations/tv.tscn" id="3_txbhl"]
 [ext_resource type="PackedScene" uid="uid://c74ckxaor1kyk" path="res://scenes/camera_3d.tscn" id="4_01j2b"]
-[ext_resource type="Script" uid="uid://4pv24ixhtapg" path="res://scripts/front_room/areas/TV.gd" id="5_y7msp"]
+[ext_resource type="Script" uid="uid://4pv24ixhtapg" path="res://scripts/right_room/areas/TV.gd" id="5_y7msp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bt3ln"]
 size = Vector3(8, 0.5, 2.5)
@@ -24,20 +25,6 @@ size = Vector3(3, 0.5, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8kr7c"]
 size = Vector3(3, 0.5, 4)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bt3ln"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0.097231515, 0.100159384, 0.1060221, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_euo8y"]
-sky_material = SubResource("ProceduralSkyMaterial_bt3ln")
-
-[sub_resource type="Environment" id="Environment_ork5k"]
-background_mode = 2
-sky = SubResource("Sky_euo8y")
-tonemap_mode = 2
-glow_enabled = true
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_2vx1j"]
 size = Vector3(0.62475586, 1.3457031, 0)
 
@@ -56,7 +43,7 @@ skeleton = NodePath("StaticBody3D")
 shape = SubResource("BoxShape3D_euo8y")
 
 [node name="Wall" type="MeshInstance3D" parent="structure"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.0002568, -3.75)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.0011899471, 1.9949028, -3.7491117)
 mesh = SubResource("BoxMesh_euo8y")
 skeleton = NodePath("StaticBody3D")
 
@@ -85,19 +72,13 @@ skeleton = NodePath("StaticBody3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="structure/Wall3/StaticBody3D"]
 shape = SubResource("BoxShape3D_8kr7c")
 
-[node name="environment" type="Node3D" parent="."]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment"]
-transform = Transform3D(-0.77181166, -0.62738734, 0.10340314, 0.12961164, 0.003975779, 0.99155724, -0.62250096, 0.77869725, 0.078247935, 0, 5, 1)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="environment"]
-environment = SubResource("Environment_ork5k")
-
 [node name="objects" type="Node3D" parent="."]
 
 [node name="drawer" parent="objects" instance=ExtResource("1_0l6qm")]
 transform = Transform3D(0.45, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.56, -2.7)
+
+[node name="safe" parent="objects" instance=ExtResource("2_2vx1j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.3, 0.1, -2.2)
 
 [node name="decorations" type="Node3D" parent="."]
 
